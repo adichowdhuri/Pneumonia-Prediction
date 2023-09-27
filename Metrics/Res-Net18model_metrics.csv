@@ -1,0 +1,2 @@
+Model,Training Loss,Validation Loss,Training Accuracy,Validation Accuracy
+ResNet-18,0.27653154730796814,1.2538996934890747,0.9152607321739197,0.625
