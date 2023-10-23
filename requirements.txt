@@ -1,6 +1,4 @@
-matplotlib==3.3.2
 streamlit==0.70.0
-numpy==1.18.5
 Keras==2.4.3
 tensorboard==2.3.0
 tensorboard-plugin-wit==1.7.0
