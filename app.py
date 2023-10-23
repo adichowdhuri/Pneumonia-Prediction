@@ -1,4 +1,5 @@
 import os
+import io
 import numpy as np
 from keras.models import load_model
 from keras.applications.vgg16 import VGG16
@@ -7,6 +8,7 @@ from keras.applications.vgg16 import preprocess_input
 from keras.models import Model, load_model
 import tensorflow as tf
 import streamlit as st
+from PIL import Image
 from tensorflow.keras.preprocessing import image
 
 np.random.seed()
@@ -33,11 +35,11 @@ uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
 if uploaded_image is not None:
     # Display the uploaded image
     st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+    image_bytes = uploaded_image.getvalue()
+    img = Image.open(io.BytesIO(image_bytes))
+    img = img.resize((224, 224))
 
-    # Make predictions on the uploaded image
-    img = image.load_img(uploaded_image, target_size=(224, 224))
-
-    img_array = image.img_to_array(img)
+    img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_data = preprocess_input(img_array)
     prediction = model.predict(img)
