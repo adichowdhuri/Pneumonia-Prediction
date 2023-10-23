@@ -8,7 +8,6 @@ from keras.models import Model, load_model
 import tensorflow as tf
 import streamlit as st
 from tensorflow.keras.preprocessing import image
-import matplotlib.pyplot as plt
 
 np.random.seed()
 
