@@ -35,14 +35,15 @@ uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
 if uploaded_image is not None:
     # Display the uploaded image
     st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
-    image_bytes = uploaded_image.getvalue()
-    img = Image.open(io.BytesIO(image_bytes))
-    img = img.resize((224, 224))
 
-    img_array = np.array(img)
-    img_array = np.expand_dims(img_array, axis=0)
-    img_data = preprocess_input(img_array)
-    prediction = model.predict(img_data)
+    # Make predictions on the uploaded image
+    img = image.load_img(uploaded_image, target_size=(224, 224))
+    img = image.img_to_array(img)
+    img = np.expand_dims(img, axis=0)
+
+    img = np.expand_dims(img, axis=0)
+    img = preprocess_input(img)
+    prediction = model.predict(img)
     predicted_class_index = np.argmax(prediction[0])
 
     # Get the predicted class name directly from the folder name
