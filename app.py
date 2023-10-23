@@ -42,7 +42,7 @@ if uploaded_image is not None:
     img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_data = preprocess_input(img_array)
-    prediction = model.predict(img)
+    prediction = model.predict(img_data)
     predicted_class_index = np.argmax(prediction[0])
 
     # Get the predicted class name directly from the folder name
