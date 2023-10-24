@@ -1,9 +1,8 @@
 import os
 import io
 import numpy as np
-from keras.applications.inception_v3 import InceptionV3
+from keras.applications.inception_v3 import InceptionV3, preprocess_input
 from keras.layers import Input, Lambda, Dense, Flatten
-from keras.applications.vgg16 import preprocess_input
 from keras.models import Model, load_model
 import tensorflow as tf
 import streamlit as st
@@ -65,7 +64,7 @@ if uploaded_image is not None:
     img = pil_image.open(image_stream).resize((224, 224))
     if img.mode != 'RGB':
         img = img.convert('RGB')
-    img = image.img_to_array(img)
+    img = image.img_to_array(img) / 255.0
     img = np.expand_dims(img, axis=0)
 
     img = preprocess_input(img)
