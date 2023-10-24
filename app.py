@@ -10,15 +10,8 @@ import streamlit as st
 from PIL import Image as pil_image
 from tensorflow.keras.preprocessing import image
 
-np.random.seed()
+st.set_page_config(page_title="dAIgnostix", page_icon="Picture1.png")
 
-st.markdown("""
-    <style>
-        .reportview-container {
-            background-color: black;
-        }
-    </style>
-    """, unsafe_allow_html=True)
 
 # Load your trained model
 vgg = VGG16(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
@@ -33,7 +26,6 @@ model.load_weights('training_1/cp.ckpt')
 folders = ["Normal", 'Pneumonia']
 
 # Streamlit app
-st.set_page_config(page_title="Pneumonia Detector", page_icon="Picture1.png")
 
 
 # Upload a new image
