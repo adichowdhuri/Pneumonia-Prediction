@@ -25,6 +25,16 @@ model.load_weights('training_1/cp.ckpt')
 # List all subdirectories (bird name folders) in the testing directory
 folders = ["Normal", 'Pneumonia']
 
+# CSS for green text
+st.markdown("""
+<style>
+    .green-text {
+        color: green;
+    }
+</style>
+<div style="text-align: center; font-size: 24px; font-weight: bold;">d<span class="green-text">A</span>I<span class="green-text">g</span>nostix</div>
+""", unsafe_allow_html=True)
+
 import base64
 
 def get_image_base64_str(image_path):
