@@ -26,7 +26,7 @@ model.load_weights('training_1/cp.ckpt')
 folders = ["Normal", 'Pneumonia']
 
 # Streamlit app
-st.image("Picture1.png", width=50)  # Adjust width as needed
+st.image("Picture1.png")  # Adjust width as needed
 
 # Upload a new image
 uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
