@@ -64,17 +64,17 @@ if uploaded_image is not None:
     img = pil_image.open(image_stream).resize((224, 224))
     if img.mode != 'RGB':
         img = img.convert('RGB')
-    img = image.img_to_array(img) 
+    img = image.img_to_array(img) / 255.0
     img = np.expand_dims(img, axis=0)
 
     img = preprocess_input(img)
     prediction = model.predict(img)
-    predicted_class_index = np.argmax(prediction[0]) / 255.0
-    #predicted_probability = prediction[0][predicted_class_index] * 100   # Convert to percentage
+    predicted_class_index = np.argmax(prediction[0]) 
+    predicted_probability = prediction[0][predicted_class_index] * 100   # Convert to percentage
 
 
     # Get the predicted class name directly from the folder name
     predicted_class_name = folders[predicted_class_index]
 
     # Display the prediction
-    st.title(f"Diagnosis: {predicted_class_name} ")
+    st.title(f"Diagnosis: {predicted_class_name} Confidence: {predicted_probability}")
