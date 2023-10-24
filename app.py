@@ -1,7 +1,7 @@
 import os
 import io
 import numpy as np
-from keras.applications.vgg16 import VGG16
+from keras.applications.inception_v3 import InceptionV3
 from keras.layers import Input, Lambda, Dense, Flatten
 from keras.applications.vgg16 import preprocess_input
 from keras.models import Model, load_model
@@ -14,12 +14,12 @@ st.set_page_config(page_title="dAIgnostix", page_icon="👨‍⚕️")
 
 
 # Load your trained model
-vgg = VGG16(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
-for layer in vgg.layers:
+inception = InceptionV3(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
+for layer in inception.layers:
     layer.trainable = False
-x = Flatten()(vgg.output)
+x = Flatten()(inception.output)
 prediction = Dense(2, activation='softmax')(x)
-model = Model(inputs=vgg.input, outputs=prediction)
+model = Model(inputs=inception.input, outputs=prediction)
 
 model.load_weights('training_1/cp.ckpt')
 # List all subdirectories (bird name folders) in the testing directory
