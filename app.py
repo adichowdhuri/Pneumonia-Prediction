@@ -21,7 +21,7 @@ x = Flatten()(vgg.output)
 prediction = Dense(2, activation='softmax')(x)
 model = Model(inputs=vgg.input, outputs=prediction)
 
-model.load_weights('training_1\cp.ckpt')
+model.load_weights('training_1/cp.ckpt')
 # List all subdirectories (bird name folders) in the testing directory
 folders = ["Normal", 'Pneumonia']
 
