@@ -47,7 +47,7 @@ st.markdown("""
     }
 </style>
 <div style="text-align: center; font-size: 48px; font-weight: bold;">d<span class="green-text">AI</span>gnostix</div>
-<div style="text-align: center; font-size: 24px; margin-top: 10px;">Your precision diagnostic partner</div>
+<div style="text-align: center; font-size: 24px; margin-top: 5px;">Your precision diagnostic partner</div>
             
 """, unsafe_allow_html=True)
 
