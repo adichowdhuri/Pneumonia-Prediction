@@ -13,12 +13,17 @@ from tensorflow.keras.preprocessing import image
 np.random.seed()
 
 st.markdown("""
-    <style>
-        .reportview-container {
-            background-color: black;
-        }
-    </style>
-    """, unsafe_allow_html=True)
+<style>
+    body {
+        color: #fff;
+        background-color: #000;
+    }
+    .sidebar .sidebar-content {
+        background-color: #000;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 
 # Load your trained model
 vgg = VGG16(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
@@ -54,7 +59,7 @@ if uploaded_image is not None:
     img = preprocess_input(img)
     prediction = model.predict(img)
     predicted_class_index = np.argmax(prediction[0])
-    predicted_probability = prediction[0][predicted_class_index]   # Convert to percentage
+    predicted_probability = prediction[0][predicted_class_index] * 100   # Convert to percentage
 
 
     # Get the predicted class name directly from the folder name
