@@ -77,4 +77,4 @@ if uploaded_image is not None:
     predicted_class_name = folders[predicted_class_index]
 
     # Display the prediction
-    st.title(f"Diagnosis: {predicted_class_name} (Probability: {predicted_probability}%)")
+    st.title(f"Diagnosis: {predicted_class_name} ")
