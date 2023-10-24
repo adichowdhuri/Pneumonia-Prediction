@@ -25,9 +25,18 @@ model.load_weights('training_1/cp.ckpt')
 # List all subdirectories (bird name folders) in the testing directory
 folders = ["Normal", 'Pneumonia']
 
-# Streamlit app
+import base64
+
+def get_image_base64_str(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
+
 icon_path = "Picture1.png"
-st.markdown(f'<div style="text-align: center;"><img src="{icon_path}" style="max-width: 100%;"></div>', unsafe_allow_html=True) 
+image_base64_str = get_image_base64_str(icon_path)
+st.markdown(
+    f'<div style="text-align: center;"><img src="data:image/png;base64,{image_base64_str}" style="max-width: 100%;"></div>', 
+    unsafe_allow_html=True
+)
 
 # Upload a new image
 uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
