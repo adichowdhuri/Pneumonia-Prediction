@@ -12,6 +12,13 @@ from tensorflow.keras.preprocessing import image
 
 np.random.seed()
 
+st.markdown("""
+    <style>
+        .reportview-container {
+            background-color: black;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Load your trained model
 vgg = VGG16(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
@@ -54,4 +61,4 @@ if uploaded_image is not None:
     predicted_class_name = folders[predicted_class_index]
 
     # Display the prediction
-    st.title(f"Diagnosis: {predicted_class_name} (Probability: {predicted_probability:.2f}%)")
+    st.title(f"Diagnosis: {predicted_class_name} (Probability: {predicted_probability}%)")
