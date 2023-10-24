@@ -13,17 +13,12 @@ from tensorflow.keras.preprocessing import image
 np.random.seed()
 
 st.markdown("""
-<style>
-    body {
-        color: #fff;
-        background-color: #000;
-    }
-    .sidebar .sidebar-content {
-        background-color: #000;
-    }
-</style>
-""", unsafe_allow_html=True)
-
+    <style>
+        .reportview-container {
+            background-color: black;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Load your trained model
 vgg = VGG16(input_shape=[224,224] + [3], weights='imagenet', include_top=False)
@@ -38,7 +33,8 @@ model.load_weights('training_1/cp.ckpt')
 folders = ["Normal", 'Pneumonia']
 
 # Streamlit app
-st.title("Pneumonia Detecter")
+st.set_page_config(page_title="Pneumonia Detector", page_icon="Picture1.png")
+
 
 # Upload a new image
 uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
