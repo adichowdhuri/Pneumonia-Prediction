@@ -22,7 +22,7 @@ model = Model(inputs=inception.input, outputs=prediction)
 
 model.load_weights('training_1/inception_pneumonia_weights.h5')
 # List all subdirectories (bird name folders) in the testing directory
-folders = ["Normal", 'Pneumonia']
+folders = ["Normal", "Pneumonia"]
 
 
 import base64
@@ -77,4 +77,4 @@ if uploaded_image is not None:
     predicted_class_name = folders[predicted_class_index]
 
     # Display the prediction
-    st.title(f"Diagnosis: {predicted_class_name} Confidence: {predicted_probability}")
+    st.title(f"Diagnosis: {predicted_class_name} Confidence: {predicted_probability}%")
