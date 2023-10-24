@@ -7,7 +7,7 @@ from keras.applications.vgg16 import preprocess_input
 from keras.models import Model, load_model
 import tensorflow as tf
 import streamlit as st
-from PIL import Image
+from PIL import Image as pil_image
 from tensorflow.keras.preprocessing import image
 
 np.random.seed()
@@ -38,7 +38,7 @@ if uploaded_image is not None:
     st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
 
     # Make predictions on the uploaded image
-    img = image.load_img(image_stream, target_size=(224, 224))
+    img = pil_image.open(image_stream).resize((224, 224))
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
 
