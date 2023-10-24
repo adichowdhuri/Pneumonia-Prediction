@@ -25,15 +25,6 @@ model.load_weights('training_1/cp.ckpt')
 # List all subdirectories (bird name folders) in the testing directory
 folders = ["Normal", 'Pneumonia']
 
-# CSS for green text
-st.markdown("""
-<style>
-    .green-text {
-        color: green;
-    }
-</style>
-<div style="text-align: center; font-size: 48px; font-weight: bold;">d<span class="green-text">AI</span>gnostix</div>
-""", unsafe_allow_html=True)
 
 import base64
 
@@ -47,6 +38,17 @@ st.markdown(
     f'<div style="text-align: center;"><img src="data:image/png;base64,{image_base64_str}" style="max-width: 100%;"></div>', 
     unsafe_allow_html=True
 )
+
+# CSS for green text
+st.markdown("""
+<style>
+    .green-text {
+        color: green;
+    }
+</style>
+<div style="text-align: center; font-size: 48px; font-weight: bold;">d<span class="green-text">AI</span>gnostix</div>
+""", unsafe_allow_html=True)
+
 
 # Upload a new image
 uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
