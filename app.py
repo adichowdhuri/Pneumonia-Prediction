@@ -32,7 +32,7 @@ st.markdown("""
         color: green;
     }
 </style>
-<div style="text-align: center; font-size: 24px; font-weight: bold;">d<span class="green-text">A</span>I<span class="green-text">g</span>nostix</div>
+<div style="text-align: center; font-size: 48px; font-weight: bold;">d<span class="green-text">AI</span>gnostix</div>
 """, unsafe_allow_html=True)
 
 import base64
