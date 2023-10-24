@@ -47,9 +47,11 @@ if uploaded_image is not None:
     img = preprocess_input(img)
     prediction = model.predict(img)
     predicted_class_index = np.argmax(prediction[0])
+    predicted_probability = prediction[0][predicted_class_index] * 100  # Convert to percentage
+
 
     # Get the predicted class name directly from the folder name
     predicted_class_name = folders[predicted_class_index]
 
     # Display the prediction
-    st.title(f"Diagnosis: {predicted_class_name}")
+    st.title(f"Diagnosis: {predicted_class_name} (Probability: {predicted_probability:.2f}%)")
