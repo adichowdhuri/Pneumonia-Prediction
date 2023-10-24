@@ -21,7 +21,7 @@ x = Flatten()(inception.output)
 prediction = Dense(2, activation='softmax')(x)
 model = Model(inputs=inception.input, outputs=prediction)
 
-model.load_weights('training_1/cp.ckpt')
+model.load_weights('training_1/inception_pneumonia_weights.h5')
 # List all subdirectories (bird name folders) in the testing directory
 folders = ["Normal", 'Pneumonia']
 
