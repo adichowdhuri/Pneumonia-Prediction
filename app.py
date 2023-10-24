@@ -10,7 +10,7 @@ import streamlit as st
 from PIL import Image as pil_image
 from tensorflow.keras.preprocessing import image
 
-st.set_page_config(page_title="dAIgnostix", page_icon="Picture1.png")
+st.set_page_config(page_title="dAIgnostix", page_icon="👨‍⚕️")
 
 
 # Load your trained model
@@ -26,7 +26,7 @@ model.load_weights('training_1/cp.ckpt')
 folders = ["Normal", 'Pneumonia']
 
 # Streamlit app
-
+st.image("Picture1.png", width=50)  # Adjust width as needed
 
 # Upload a new image
 uploaded_image = st.file_uploader("Upload an Xray", type=["jpg", "jpeg", "png"])
