@@ -36,9 +36,10 @@ Pneumonia-Prediction/
 │
 ├── app.py                   # Main application script for model deployment
 │
-├── requirements.txt         # List of dependencies
+├── requirements.txt         # List of dependencies for app
 │
 └── README.md                # Project documentation
+
 </code></pre>
 
 <h1>Tech Stack</h1>
