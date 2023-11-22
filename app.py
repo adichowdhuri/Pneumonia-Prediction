@@ -31,7 +31,7 @@ def get_image_base64_str(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode('utf-8')
 
-icon_path = "Picture1.png"
+icon_path = "images/Picture1.png"
 image_base64_str = get_image_base64_str(icon_path)
 st.markdown(
     f'<div style="text-align: center;"><img src="data:image/png;base64,{image_base64_str}" style="max-width: 100%;"></div>', 
