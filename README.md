@@ -110,11 +110,11 @@ Pneumonia-Prediction/
     </li>
     <li><strong>Install Project Dependencies</strong>:
         <ul>
-            <li>Make sure you are in the directory containing <code>requirements.txt</code>.</li>
+            <li>Make sure you are in the directory containing <code>model_requirements.txt</code>.</li>
             <li>Run:
-                <pre><code>pip install -r requirements.txt</code></pre>
+                <pre><code>pip install -r model_requirements.txt</code></pre>
             </li>
-            <li>This command installs all the Python libraries listed in <code>requirements.txt</code>.</li>
+            <li>This command installs all the Python libraries listed in <code>model_requirements.txt</code>.</li>
         </ul>
     </li>
 </ol>
